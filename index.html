@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" ng-app="misCoches">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mis Coches</title>
+    <link href="refs/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container" style="padding: 7%" ng-controller="cochesControler as coche">
+    <div class="col-sm-12 text-center">
+        <div class="col-sm-6">
+            <labe class="label text-center" style="color: black">Marca:</labe>
+            <input type="text" class="input" ng-model="coche.marcaIntroducida" placeholder="{{coche.placeholderMarca}}">
+        </div>
+        <div class="col-sm-6">
+            <labe class="label text-center" style="color: black">Modelo:</labe>
+            <input type="text" class="input" ng-model="coche.modeloIntroducido" placeholder="{{coche.placeholderModelo}}">
+        </div>
+        <div class="row" style="padding: 7%">
+            <div class="text-center">
+                <input type="button" class="btn btn-default" value="Guardar" ng-click="coche.guardar()">
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="marcaModelo in coche.coches">
+                <td class="text-left">{{marcaModelo.marca}}</td>
+                <td class="text-left">{{marcaModelo.modelo}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="refs/angular.min.js"></script>
+<script src="app.js"></script>
+<script src="cochesControler.js"></script>
+</body>
+</html>
